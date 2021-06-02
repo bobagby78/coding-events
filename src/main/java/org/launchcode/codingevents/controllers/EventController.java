@@ -7,16 +7,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
 @RequestMapping("events")
 public class EventController {
 
-    private static List<String> events = new ArrayList<>();
+//    private static List<String> events = new ArrayList<>();
+    /*events is an ArrayList of events, so when populated, it would look like this: ["WWDC", "Code with Pride","Raspberry Pi Jam"]
+    TODO turn events into a HashMap <String eventName, String eventDescrip>
+     */
+
+    private static HashMap<String, String> events = new HashMap<>();
+
 
     @RequestMapping(method = RequestMethod.GET)
-    public String stlEvents (Model model){
+    public String displayAllEvents(Model model){
         model.addAttribute("events", events);
         return "events/index";
     }
@@ -28,8 +35,8 @@ public class EventController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "create")
-    public String createEvent(@RequestParam String eventName){
-        events.add(eventName);
+    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescrip){
+        events.put(eventName, eventDescrip);
         return "redirect:"; //redirects the user to the root path. can add custom path after :
     }
 }
