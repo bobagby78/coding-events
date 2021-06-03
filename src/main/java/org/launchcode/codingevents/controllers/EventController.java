@@ -56,6 +56,16 @@ public class EventController {
         return "redirect:";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "edit")
+    public String displayEditRofm(Model model, @PathVariable int eventId){
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "edit")
+    public String processEditForm(int eventId, String eventName, String eventDescription){
+
+    }
+
 //    @RequestMapping(method = RequestMethod.POST, value = "create")
 //    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescrip) {
 //        events.put(eventName, eventDescrip);
