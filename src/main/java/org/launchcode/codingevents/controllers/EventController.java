@@ -23,19 +23,19 @@ public class EventController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public String displayAllEvents(Model model){
+    public String displayAllEvents(Model model) {
         model.addAttribute("events", events);
         return "events/index";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "create")
-    public String renderCreateEventForm(){
+    public String renderCreateEventForm() {
 
         return "events/create";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "create")
-    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescrip){
+    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescrip) {
         events.put(eventName, eventDescrip);
         return "redirect:"; //redirects the user to the root path. can add custom path after :
     }
