@@ -13,12 +13,12 @@
     <thead>
     <tr>
         <th> Name</th>
-        <th> Description</th>
+        <th> Description</th> no longer have descriptions in the ArrayList of Objects
     </tr>
     </thead>
-    <tr th:each="mapEntry : ${events}">
-        <td th:text="${mapEntry.key}"></td>
-        <td th:text="${mapEntry.value}"></td>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.eventName}"></td>
+        <td th:text="${event.eventDescription}"></td>nn Removed due to change from HashMap of strings to ArrayList of objects
     </tr>
 </table>
 

@@ -2,22 +2,28 @@ package org.launchcode.codingevents.models;
 
 public class Event {
 
-    private String name;
+    private String eventName;
+    private String eventDescription;
 
-    public Event(String name) {
-        this.name = name;
+    public Event(String name, String description) {
+        this.eventName = eventName;
+        this.eventDescription = eventDescription;
+    }
+
+    public String getEventDescription() {
+        return eventDescription;
     }
 
     public String getName() {
-        return name;
+        return eventName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.eventName = name;
     }
 
     @Override
     public String toString() {
-        return name;
+        return eventName;
     }
 }
