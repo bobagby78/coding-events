@@ -1,24 +1,22 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-
+<head th:replace="fragments :: head"></head>
 
 <body class="container">
-<h1>Create Event</h1>
+<h1>Delete Event</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
 <form method= "POST">
-    <div class =  "Form-group">
+
         <th:block th:each= "event : ${events}">
-            <label>
-                <span th:text="${event.eventName}1"></span><--! probs needs to be event.eventName, not event.name-->
-                <input type="checkbox" name = "eventIds" th:value ="${event.id}">
-            </label>
+            <div class =  "form-group">
+                <label>
+                    <span th:text="${event.eventName}"></span>
+                    <input type="checkbox" name = "eventIds" th:value ="${event.id}" class = "form-group">
+                </label>
+            </div>
         </th:block>
-    </div>
+
     <input type = "submit" value = "Delete" class = "btn btn-danger">
 </form>
 </body>
