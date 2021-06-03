@@ -10,16 +10,20 @@ public class Event {
         this.eventDescription = eventDescription;
     }
 
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
     public String getEventDescription() {
         return eventDescription;
     }
 
-    public String getName() {
-        return eventName;
-    }
-
-    public void setName(String name) {
-        this.eventName = name;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 
     @Override
