@@ -4,10 +4,7 @@ import org.launchcode.codingevents.data.EventData;
 import org.launchcode.codingevents.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,8 +34,8 @@ public class EventController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "create")
-    public String createEvent(@RequestParam String eventName, @RequestParam String eventDescription) {
-        EventData.add(new Event(eventName, eventDescription)); //had to change due to importing Event (object), not string
+    public String processCreateEventForm(@ModelAttribute Event newEvent) { //@Model Attribute will look for fields on its own and populate fields with values.
+        EventData.add(newEvent); //had to change due to importing Event (object), not string
         return "redirect:"; //redirects the user to the root path. can add custom path after :
     }
 
