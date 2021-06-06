@@ -12,14 +12,18 @@
 <table class = "table table-striped">
     <thead>
         <tr>
-            <th> Name </th>
+            <th> Event Name </th>
             <th> Description </th>
+            <th> Address </th>
         </tr>
     </thead>
-        <tr th:each = "mapEntry : ${events}">
-            <td th:text="${mapEntry.key}"></td>
-            <td th:text="${mapEntry.value}"></td>
-        </tr>
+        <th:block th:each="event: ${events}">
+            <tr>
+                <td th:text="${event.getKey()}"> Event Name</td>
+                <td th:text="${event.getValue()}"> Descrip</td>
+                <td th:replace="fragments :: address"> Addy </td>
+            </tr>
+        </th:block>
 </table>
 
 <nav th:replace = "fragments :: navigation"></nav>

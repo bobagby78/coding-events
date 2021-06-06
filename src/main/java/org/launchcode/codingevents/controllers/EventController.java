@@ -24,7 +24,14 @@ public class EventController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String displayAllEvents(Model model){
-        model.addAttribute("events", events);
+//        model.addAttribute("events", events);
+//        return "events/index";
+
+        events.put("Ras Pi Jam", "Event revolving around the use of the RasPi SBC");
+        events.put("StrangeLoop", "Coding event in St. Louis");
+        events.put("WWDC", "Apple's Dev Conference");
+
+        model.addAttribute("events", events); //nothing shows up in allEvents until you model.addAttribute(events);.
         return "events/index";
     }
 
